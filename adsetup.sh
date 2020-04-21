@@ -4,13 +4,13 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-
 set -e
+
 # get latest adcli
 wget http://http.us.debian.org/debian/pool/main/a/adcli/adcli_0.9.0-1_amd64.deb
 # install latest adcli
 dpkg -i adcli_0.9.0-1_amd64.deb
-
+rm adcli_0.9.0-1_amd64.deb
 # install domain tools
 apt update
 apt -y install realmd sssd sssd-tools libnss-sss libpam-sss samba-common-bin oddjob oddjob-mkhomedir packagekit
